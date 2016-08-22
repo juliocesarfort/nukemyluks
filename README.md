@@ -11,10 +11,11 @@ disclose the encryption passwords for the computer's hard drives.
 
 ## How it works
 
-Nuke My LUKS is divided in three different small pieces of code:
+Nuke My LUKS is divided in four different small pieces of code:
 - client.py
 - server.py
 - generateconfig.py
+- nukemyluks.sh
 
 In a nutshell, it works by sending a UDP broadcast message to port 1337 with a tag appended to a user-defined password. In case the password matches, the script for destroying the LUKS header is executed.
 
