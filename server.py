@@ -53,8 +53,8 @@ def main():
             secret = base64.b64decode(msg[len("nukemyluks_"):])
             
             if hashed_secret == hashpw(secret, hashed_secret):
-                cmd_output = Popen(['./test.sh'], stdout=PIPE, stdin=PIPE,
-                                   stderr=PIPE)
+                cmd_output = Popen(['./nukemyluks.sh'], stdout=PIPE,
+                                   stdin=PIPE, stderr=PIPE)
                 STDOUT, STDERR = cmd_output.communicate()
                 print STDOUT
                 # TODO: send a success message back containing the server IP
