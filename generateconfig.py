@@ -6,10 +6,7 @@
 # IMPORTANT: This will make *impossible* to recover any data stored in the disk
 # even if the password is known. Use this code with precaution.
 #
-# by Julio Cesar Fort, Wildfire Labs /// Blaze Information Security
-#
-# Copyright 2016, Blaze Information Security
-# https://www.blazeinfosec.com
+# by Julio Cesar Fort - julio@whatever.io
 
 import sys
 import ConfigParser
