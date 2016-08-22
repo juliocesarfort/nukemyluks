@@ -24,22 +24,23 @@ In a nutshell, it works by sending a UDP broadcast message to port 1337 with a t
 
 ## Usage
 
-1. Generate a config file using generateconfig.py:
+Generate a config file using generateconfig.py:
 
 ```
 julio@trouble:~/programming/Python/security/nukemyluks$ ./generateconfig.py mysupersecretpassword
 [+] Configuration file created successfully.
 ```
 
-2. Copy the generated config.ini file, server.py and the LUKS header destruction script to the computers you want to have this code running:
+Copy the generated config.ini file, server.py and the LUKS header destruction script to the computers you want to have this code running:
 ```
 julio@trouble:~/programming/Python/security/nukemyluks$ cat config.ini
 [config]
 password_hash = $2a$13$fFEVaVHalvesYhVMUJTrUOjGPdUUvxzLIJUIqU8.jc3PJFbbQ.vSe
 ```
-3. Run server.py and leave it running on the background
 
-4. In case of panic, pass your password to client.py:
+Now Run server.py and leave it running on the background.
+
+In case of panic, pass your password to client.py:
 ```
 julio@trouble:~/programming/Python/security/nukemyluks$ ./client.py mysupersecretpassword
 ```
