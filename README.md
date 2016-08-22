@@ -10,9 +10,9 @@ disclose the encryption passwords for the computer's hard drives.
 encrypted and in a safe location. **Use this code with precaution.**
 
 
-# Author
+## Author
 - [Julio Cesar Fort](http://www.whatever.io)
 - Twitter: [@juliocesarfort](https://www.twitter.com/juliocesarfort)
 
-# Credits
+## Credits
 This code was inspired in the idea of [panicbcast](https://github.com/qnrq/panic_bcast) by [Niklas Femerstrand](http://www.qnrq.se/).
