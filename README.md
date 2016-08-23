@@ -1,6 +1,6 @@
 # Nuke My LUKS
 A simple network-based panic button designed to overwrite the LUKS header
-with random data and reboot the computer in case of an emergency situation.
+with random data and shutdown the computer in case of an emergency situation.
 
 This tool can be useful for activists, human right workers and others that
 face an adversary, such as law enforcement, that can coerce the subject to
