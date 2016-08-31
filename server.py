@@ -16,6 +16,7 @@ import platform
 import base64
 import ConfigParser
 from subprocess import Popen, PIPE
+
 try:
     from bcrypt import hashpw, gensalt
 except ImportError as err:
@@ -23,12 +24,13 @@ except ImportError as err:
     sys.exit()
 
 DEFAULT_PORT = 1337
+ERROR = -1
 
 def main():
     # check if we're running this code on Linux or not
     if 'Linux' not in platform.system():
         print "[!] Error: this can only run on Linux."
-        sys.exit()
+        sys.exit(ERROR)
     
     # create a broadcast UDP receving socket
     receiving_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
