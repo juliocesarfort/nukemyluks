@@ -26,7 +26,7 @@ except ImportError as err:
 
 DEFAULT_PORT = 1337
 ERROR = -1
-NUKEMYLUK_CMD = './nukemyluks.sh'
+NUKEMYLUKS_CMD = './nukemyluks.sh'
 
 def main():
     # check if we're running this code on Linux or not
@@ -57,11 +57,11 @@ def main():
             secret = base64.b64decode(msg[len("nukemyluks_"):])
             
             if hashed_secret == hashpw(secret, hashed_secret):
-                if not os.path.isfile(NUKEMYLUK_CMD):
-                    print "[!] Cannot execute the %s (No such file)" % NUKEMYLUK_CMD
+                if not os.path.isfile(NUKEMYLUKS_CMD):
+                    print "[!] Cannot execute the %s (No such file)" % NUKEMYLUKS_CMD
                     sys.exit(ERROR)
 
-                cmd_output = Popen([NUKEMYLUK_CMD], stdout=PIPE,
+                cmd_output = Popen([NUKEMYLUKS_CMD], stdout=PIPE,
                                    stdin=PIPE, stderr=PIPE)
                 STDOUT, STDERR = cmd_output.communicate()
                 print STDOUT
