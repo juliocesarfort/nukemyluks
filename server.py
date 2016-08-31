@@ -12,10 +12,12 @@
 import sys
 import socket
 import select
+import os.path
 import platform
 import base64
 import ConfigParser
 from subprocess import Popen, PIPE
+
 try:
     from bcrypt import hashpw, gensalt
 except ImportError as err:
@@ -23,12 +25,14 @@ except ImportError as err:
     sys.exit()
 
 DEFAULT_PORT = 1337
+ERROR = -1
+NUKEMYLUK_CMD = './nukemyluks.sh'
 
 def main():
     # check if we're running this code on Linux or not
     if 'Linux' not in platform.system():
         print "[!] Error: this can only run on Linux."
-        sys.exit()
+        sys.exit(ERROR)
     
     # create a broadcast UDP receving socket
     receiving_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -53,12 +57,15 @@ def main():
             secret = base64.b64decode(msg[len("nukemyluks_"):])
             
             if hashed_secret == hashpw(secret, hashed_secret):
-                cmd_output = Popen(['./nukemyluks.sh'], stdout=PIPE,
+                if not os.path.isfile(NUKEMYLUK_CMD):
+                    print "[!] Cannot execute the %s (No such file)" % NUKEMYLUK_CMD
+                    sys.exit(ERROR)
+
+                cmd_output = Popen([NUKEMYLUK_CMD], stdout=PIPE,
                                    stdin=PIPE, stderr=PIPE)
                 STDOUT, STDERR = cmd_output.communicate()
                 print STDOUT
                 # TODO: send a success message back containing the server IP
-        
 
 if __name__ == '__main__':
     main()
